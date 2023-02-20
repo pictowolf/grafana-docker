@@ -5,19 +5,17 @@ terraform {
       version = ">= 3.0.1"
     }
     grafana = {
-      source = "grafana/grafana"
+      source  = "grafana/grafana"
       version = "1.35.0"
     }
   }
 }
-
 
 provider "docker" {
   host = "npipe:////.//pipe//docker_engine"
 }
 
 provider "grafana" {
-  # Configuration options
   url  = "http://localhost:3000"
   auth = "admin:admin"
 }
