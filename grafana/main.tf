@@ -21,7 +21,7 @@ resource "docker_container" "grafana" {
 resource "grafana_data_source" "prometheus" {
   type                = "prometheus"
   name                = "Prometheus"
-  url                 = "http://${var.prometheus_host}:9090"
+  url                 = "http://${var.prometheus_host}:${var.prometheus_port}"
   access_mode = "proxy"
   is_default = true
   basic_auth_enabled  = false
@@ -35,7 +35,7 @@ resource "grafana_data_source" "prometheus" {
 resource "grafana_data_source" "loki" {
   type                = "loki"
   name                = "Loki"
-  url                 = "http://${var.loki_host}:3100"
+  url                 = "http://${var.loki_host}:${var.loki_port}"
   access_mode = "proxy"
   is_default = false
   basic_auth_enabled  = false

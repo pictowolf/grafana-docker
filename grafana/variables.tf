@@ -6,6 +6,14 @@ variable "loki_host" {
   type = string
 }
 
+variable "loki_port" {
+  type = string
+}
+
 variable "prometheus_host" {
+  type = string
+}
+
+variable "prometheus_port" {
   type = string
 }

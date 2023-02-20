@@ -51,12 +51,12 @@ module "grafana" {
   source = "./grafana"
   
   docker_network_name = var.docker_network_name
-  loki_host = docker_container.loki.name
-  prometheus_host = docker_container.prometheus.name
 
-  providers = {
-    docker = docker.alt
-  }
+  loki_host = docker_container.loki.name
+  loki_port = docker_container.loki.ports[0].external
+
+  prometheus_host = docker_container.prometheus.name
+  prometheus_port = docker_container.prometheus.ports[0].external
 
   depends_on = [
     docker_network.docker_network
